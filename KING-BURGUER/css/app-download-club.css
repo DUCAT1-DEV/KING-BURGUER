@@ -1,0 +1,352 @@
+:root {
+  --app-club-bg: #2f190e;
+  --app-club-bg-soft: #3f2314;
+  --app-club-text: #ffffff;
+  --app-club-phone-shell: #f4e7d6;
+  --app-club-phone-panel: #e9d3b8;
+  --app-club-phone-line: rgba(80, 35, 20, 0.12);
+  --app-club-store-bg: #111111;
+  --app-club-store-border: rgba(255, 255, 255, 0.28);
+  --app-club-store-hover: #1d1d1d;
+  --app-club-shadow: 0 22px 48px rgba(0, 0, 0, 0.26);
+}
+
+.app-download-club {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1rem, 4vw, 2.4rem);
+  color: var(--app-club-text);
+  background-color: var(--app-club-bg);
+  background-image: radial-gradient(circle at 16% 22%, rgba(251, 185, 0, 0.08), transparent 35%),
+    radial-gradient(circle at 84% 78%, rgba(255, 214, 153, 0.1), transparent 42%),
+    linear-gradient(135deg, var(--app-club-bg) 0%, var(--app-club-bg-soft) 100%);
+}
+
+.app-download-club__container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.2rem);
+  align-items: center;
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  opacity: 1;
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.app-download-club.is-app-club-enter-pending .app-download-club__container {
+  opacity: 0;
+}
+
+.app-download-club.is-app-club-enter-active .app-download-club__container {
+  opacity: 1;
+}
+
+.app-download-club__mockup {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 960ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 980ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-download-club.is-app-club-enter-pending .app-download-club__mockup {
+  opacity: 0;
+  transform: translate3d(-3rem, 0, 0);
+}
+
+.app-download-club.is-app-club-enter-active .app-download-club__mockup {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.app-phone-mockup {
+  width: min(100%, 19rem);
+  padding: 0.85rem;
+  border-radius: 2rem;
+  background-color: var(--app-club-phone-shell);
+  box-shadow: var(--app-club-shadow);
+  animation: app-phone-floating 4.8s ease-in-out infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.app-phone-mockup__header {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 0.52rem 0.65rem;
+}
+
+.app-phone-mockup__header .material-symbols-outlined {
+  font-size: 1.05rem;
+  color: #502314;
+  animation: app-icon-floating 2.9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.app-phone-mockup__header p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #502314;
+}
+
+.app-phone-mockup__body {
+  padding: 0.55rem;
+}
+
+.app-phone-mockup__screen {
+  margin: 0;
+  padding: 0.72rem;
+  border-radius: 1.35rem;
+  background-color: var(--app-club-phone-panel);
+}
+
+.app-phone-mockup__screen img {
+  display: block;
+  width: min(100%, 15.5rem);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+
+.app-phone-mockup__nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  margin-top: 0.35rem;
+  padding: 0.58rem 0.6rem 0.54rem;
+  border-top: 1px solid var(--app-club-phone-line);
+}
+
+.app-phone-mockup__nav .material-symbols-outlined {
+  font-size: 1.2rem;
+  color: #6d402e;
+  animation: app-icon-floating 3.1s ease-in-out infinite;
+  will-change: transform;
+}
+
+.app-phone-mockup__nav .material-symbols-outlined:nth-child(2) {
+  animation-delay: 180ms;
+}
+
+.app-phone-mockup__nav .material-symbols-outlined:nth-child(3) {
+  animation-delay: 320ms;
+}
+
+.app-download-club__content {
+  display: grid;
+  gap: 1.35rem;
+  width: min(100%, 600px);
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 960ms cubic-bezier(0.16, 1, 0.3, 1) 120ms,
+    transform 980ms cubic-bezier(0.22, 1, 0.36, 1) 120ms;
+}
+
+.app-download-club.is-app-club-enter-pending .app-download-club__content {
+  opacity: 0;
+  transform: translate3d(3rem, 0, 0);
+}
+
+.app-download-club.is-app-club-enter-active .app-download-club__content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.app-download-club__title {
+  margin: 0;
+  max-width: 19ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.95rem, 4.8vw, 3.25rem);
+  font-weight: 400;
+  line-height: 0.97;
+  text-transform: uppercase;
+  color: var(--app-club-text);
+}
+
+.app-download-club__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.store-button {
+  position: relative;
+  display: inline-flex;
+  gap: 0.62rem;
+  align-items: center;
+  min-height: 3.35rem;
+  padding: 0.65rem 0.95rem;
+  overflow: hidden;
+  isolation: isolate;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: var(--app-club-store-bg);
+  border: 1px solid var(--app-club-store-border);
+  border-radius: 0.9rem;
+  animation: store-button-pulse 2.8s ease-in-out infinite;
+  transition: background-color var(--transition-base), transform var(--transition-base),
+    border-color var(--transition-base);
+  will-change: transform;
+}
+
+.store-button--google {
+  animation-delay: 420ms;
+}
+
+.store-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.store-button:hover,
+.store-button:focus-visible {
+  background-color: var(--app-club-store-hover);
+  border-color: rgba(255, 255, 255, 0.52);
+  transform: translateY(-2px);
+}
+
+.store-button__icon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: currentColor;
+}
+
+.store-button__copy {
+  display: grid;
+  line-height: 1.05;
+}
+
+.store-button__copy span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.store-button__copy strong {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.store-button__ripple {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  background-color: rgba(255, 255, 255, 0.38);
+  transform: translate(-50%, -50%) scale(0);
+  animation: store-button-ripple 650ms ease-out forwards;
+}
+
+@keyframes app-phone-floating {
+  0%,
+  100% {
+    transform: translate3d(0, -0.35rem, 0);
+  }
+  50% {
+    transform: translate3d(0, 0.42rem, 0);
+  }
+}
+
+@keyframes app-icon-floating {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -0.2rem, 0);
+  }
+}
+
+@keyframes store-button-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 0.7rem rgba(255, 255, 255, 0.2);
+    filter: brightness(1.06);
+  }
+}
+
+@keyframes store-button-ripple {
+  0% {
+    opacity: 0.48;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (min-width: 900px) {
+  .app-download-club__container {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .app-download-club__content {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 899px) {
+  .app-download-club__content {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .app-download-club__title {
+    max-width: 24ch;
+  }
+
+  .app-download-club__actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-phone-mockup {
+    width: min(100%, 17rem);
+  }
+
+  .store-button {
+    width: min(100%, 16.5rem);
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-download-club__container {
+    transition: none !important;
+  }
+
+  .app-download-club__mockup {
+    transition: none !important;
+  }
+
+  .app-download-club__content {
+    transition: none !important;
+  }
+
+  .app-phone-mockup,
+  .app-phone-mockup__header .material-symbols-outlined,
+  .app-phone-mockup__nav .material-symbols-outlined,
+  .store-button,
+  .store-button__ripple {
+    animation: none !important;
+  }
+
+  .store-button {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,371 @@
+:root {
+  --kids-carousel-bg-start: #0a5f39;
+  --kids-carousel-bg-end: #1d8a57;
+  --kids-carousel-text: #ffffff;
+  --kids-carousel-copy: rgba(255, 255, 255, 0.9);
+  --kids-carousel-pill: #fbb900;
+  --kids-carousel-pill-text: #502314;
+  --kids-carousel-outline: rgba(255, 255, 255, 0.92);
+  --kids-carousel-arrow-bg: rgba(199, 197, 197, 0.72);
+  --kids-carousel-arrow-bg-hover: rgba(72, 72, 72, 0.9);
+  --kids-carousel-arrow-color: #ffffff;
+  --kids-carousel-dot-off: rgba(255, 255, 255, 0.32);
+  --kids-carousel-dot-on: #fbb900;
+  --kids-carousel-max-width: 1280px;
+}
+
+.kids-menu-carousel {
+  position: relative;
+  width: 100%;
+  min-height: clamp(34rem, 60vw, 44rem);
+  padding: clamp(2.2rem, 6vw, 3.8rem) clamp(0.35rem, 2vw, 1rem) clamp(3.2rem, 7vw, 4.4rem);
+  color: var(--kids-carousel-text);
+  background-image: radial-gradient(circle at 16% 32%, rgba(23, 173, 102, 0.2), transparent 35%),
+    radial-gradient(circle at 82% 58%, rgba(5, 46, 28, 0.44), transparent 46%),
+    linear-gradient(120deg, var(--kids-carousel-bg-start) 0%, var(--kids-carousel-bg-end) 100%);
+  overflow: hidden;
+}
+
+.kids-menu-carousel::before {
+  position: absolute;
+  bottom: 14%;
+  left: 1.5%;
+  width: 0.45rem;
+  height: 0.45rem;
+  content: '';
+  background-color: rgba(251, 185, 0, 0.33);
+  border-radius: 50%;
+  box-shadow: 13rem 9rem 0 rgba(251, 185, 0, 0.25), 34rem 3rem 0 rgba(251, 185, 0, 0.22),
+    48rem 11rem 0 rgba(251, 185, 0, 0.3), 67rem 6rem 0 rgba(251, 185, 0, 0.24),
+    84rem 13rem 0 rgba(251, 185, 0, 0.24);
+  pointer-events: none;
+}
+
+.kids-menu-carousel__container {
+  position: relative;
+  width: min(100%, var(--kids-carousel-max-width));
+  margin: 0 auto;
+}
+
+.kids-menu-carousel__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.kids-menu-carousel__toggle {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
+.kids-menu-carousel__viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.kids-menu-carousel__track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kids-menu-carousel__slide {
+  min-width: 100%;
+}
+
+.kids-menu-slide {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2.5rem);
+  align-items: center;
+  min-height: clamp(27rem, 55vw, 34rem);
+  padding: clamp(0.8rem, 2vw, 1.5rem) clamp(2.6rem, 6vw, 4.8rem) clamp(2rem, 4vw, 3rem);
+}
+
+.kids-menu-slide__content {
+  order: 2;
+  display: grid;
+  gap: clamp(0.65rem, 1.8vw, 1rem);
+  max-width: 35rem;
+}
+
+.kids-menu-slide__badge {
+  width: fit-content;
+  margin: 0;
+  padding: 0.5rem 1.2rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.78rem, 1.45vw, 0.95rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--kids-carousel-pill-text);
+  background-color: var(--kids-carousel-pill);
+  border-radius: 999px;
+}
+
+.kids-menu-slide__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.2vw, 4.2rem);
+  font-weight: 400;
+  line-height: 0.96;
+  text-transform: uppercase;
+  color: var(--kids-carousel-text);
+}
+
+.kids-menu-slide__title span {
+  display: block;
+}
+
+.kids-menu-slide__description {
+  margin: 0;
+  max-width: 47ch;
+  font-size: clamp(0.95rem, 1.7vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--kids-carousel-copy);
+}
+
+.kids-menu-slide__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 13.5rem;
+  padding: 0.82rem 1.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.35vw, 0.96rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--kids-carousel-text);
+  border: 2px solid var(--kids-carousel-outline);
+  border-radius: 999px;
+  transition: color var(--transition-base), background-color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.kids-menu-slide__cta:hover,
+.kids-menu-slide__cta:focus-visible {
+  color: #0a5f39;
+  background-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.kids-menu-slide__media {
+  order: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0;
+}
+
+.kids-menu-slide__media img {
+  display: block;
+  width: min(100%, 22rem);
+  height: auto;
+  object-fit: contain;
+}
+
+.kids-menu-slide__media--samurai img {
+  transform: translateY(-0.3rem);
+}
+
+.kids-menu-slide__media--tartarugas img {
+  width: min(100%, 24rem);
+  transform: translateY(-0.5rem);
+}
+
+.kids-menu-carousel__controls {
+  position: absolute;
+  inset: 50% 0 auto;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.kids-menu-carousel__arrow {
+  position: absolute;
+  top: 0;
+  display: none;
+  place-items: center;
+  width: clamp(2rem, 3.5vw, 2.7rem);
+  height: clamp(2rem, 3.5vw, 2.7rem);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1;
+  color: var(--kids-carousel-arrow-color);
+  background-color: var(--kids-carousel-arrow-bg);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.kids-menu-carousel__arrow:hover {
+  background-color: var(--kids-carousel-arrow-bg-hover);
+}
+
+.kids-menu-carousel__arrow--left {
+  left: 0.4rem;
+}
+
+.kids-menu-carousel__arrow--right {
+  right: 0.4rem;
+}
+
+.kids-menu-carousel__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8rem;
+  display: flex;
+  gap: 0.45rem;
+  transform: translateX(-50%);
+}
+
+.kids-menu-carousel__dot {
+  width: 1.7rem;
+  height: 0.35rem;
+  background-color: var(--kids-carousel-dot-off);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+#kids-menu-slide-1:checked ~ .kids-menu-carousel__viewport .kids-menu-carousel__track {
+  transform: translateX(0);
+}
+
+#kids-menu-slide-2:checked ~ .kids-menu-carousel__viewport .kids-menu-carousel__track {
+  transform: translateX(-100%);
+}
+
+#kids-menu-slide-1:checked ~ .kids-menu-carousel__controls .kids-menu-carousel__arrow--slide-1,
+#kids-menu-slide-2:checked ~ .kids-menu-carousel__controls .kids-menu-carousel__arrow--slide-2 {
+  display: grid;
+}
+
+#kids-menu-slide-1:checked ~ .kids-menu-carousel__dots label[for='kids-menu-slide-1'],
+#kids-menu-slide-2:checked ~ .kids-menu-carousel__dots label[for='kids-menu-slide-2'] {
+  background-color: var(--kids-carousel-dot-on);
+  transform: scaleX(1.08);
+}
+
+@media (min-width: 980px) {
+  .kids-menu-slide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .kids-menu-slide__content {
+    order: 1;
+  }
+
+  .kids-menu-slide__media {
+    order: 2;
+    justify-self: end;
+    width: min(100%, 31rem);
+  }
+
+  .kids-menu-slide__media img {
+    width: min(100%, 28rem);
+  }
+
+  .kids-menu-slide__media--samurai img,
+  .kids-menu-slide__media--tartarugas img {
+    transform: translateY(-1.7rem);
+  }
+}
+
+@media (max-width: 979px) {
+  .kids-menu-slide {
+    padding-right: clamp(1rem, 4vw, 2rem);
+    padding-left: clamp(1rem, 4vw, 2rem);
+  }
+
+  .kids-menu-slide__content {
+    width: min(100%, 38rem);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .kids-menu-slide__badge,
+  .kids-menu-slide__cta {
+    justify-self: center;
+  }
+
+  .kids-menu-carousel__controls {
+    display: none;
+  }
+
+  .kids-menu-carousel__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .kids-menu-carousel__track {
+    transition: none;
+    transform: none !important;
+  }
+
+  .kids-menu-carousel__slide {
+    scroll-snap-align: center;
+  }
+
+  .kids-menu-carousel__dots {
+    bottom: 0.5rem;
+    gap: 0.55rem;
+  }
+
+  .kids-menu-carousel__dot {
+    width: 1.95rem;
+    height: 0.45rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .kids-menu-carousel {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+
+  .kids-menu-slide__title {
+    font-size: clamp(1.85rem, 9.2vw, 3rem);
+  }
+
+  .kids-menu-slide__cta {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .kids-menu-slide__media img,
+  .kids-menu-slide__media--tartarugas img {
+    width: min(100%, 18rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kids-menu-carousel__track,
+  .kids-menu-slide__cta,
+  .kids-menu-carousel__dot {
+    transition: none;
+  }
+}
